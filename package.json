@@ -1,0 +1,16 @@
+{
+  "name": "progenitor",
+  "version": "0.1.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Justin Makeig <jmpublic+github@makeig.com> (https://github.com/jmakeig)",
+  "license": "Apache-2.0",
+  "devDependencies": {},
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
