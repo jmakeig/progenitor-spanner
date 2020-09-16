@@ -11,6 +11,7 @@
   "license": "Apache-2.0",
   "devDependencies": {},
   "dependencies": {
+    "@google-cloud/spanner": "^5.3.0",
     "express": "^4.17.1"
   }
 }
