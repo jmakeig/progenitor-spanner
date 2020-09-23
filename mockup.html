@@ -48,13 +48,26 @@
 			html {
 				font-family: Helvetica, sans-serif;
 			}
+			body {
+				padding: 1em;
+
+				display: flex;
+				/* max-height: calc(100vh - 2em - 1px); */
+			}
 			#Container {
-				border: solid 0.5px #ccc;
-				border-radius: 1em;
 				padding: 0;
 
 				max-height: 24em;
+				flex-grow: 1;
+				flex-shrink: 1;
+				flex-basis: auto;
+
 				overflow: scroll;
+
+				border: solid 0.5px #ccc;
+				border-radius: 1em;
+				box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1),
+					0 4px 6px -2px rgba(0, 0, 0, 0.05);
 			}
 
 			/* Clear the border for when there’s a zero-padding wrapper */
@@ -74,6 +87,10 @@
 			tbody > tr:last-of-type > * {
 				border-bottom-style: none;
 			}
+			/* thead th .text {
+				writing-mode: vertical-lr;
+				transform: rotate(-45deg) translate(-2em, 0);
+			} */
 		</style>
 	</head>
 
@@ -82,11 +99,29 @@
 	</body>
 	<script type="text/javascript">
 		const container = document.querySelector('#Container');
-		const colDim = 'ABCDEFG'.split('');
-		const rowDim = new Array(50).fill('').map((v, i) => i + 1);
+		// const colDim = 'ABCDEFG'.split('');
+		// const rowDim = new Array(50).fill('').map((v, i) => i + 1);
 
-		const colHeaders = `<tr><th scope="column">?</th>${colDim
-			.map((d) => `<th scope="column">${d}</th>`)
+		const colDim = ['Adoption', 'Awareness', 'Retention', 'Value'];
+		const rowDim = [
+			'Replication',
+			'Change data capture',
+			'Bring your own keys',
+			'Observaiblity',
+			'Postgres compatibility',
+			'IF NOT EXISTS',
+			'Fee tier',
+			'Point-in-time recovery',
+			'Emulator',
+			'Schema management tooling',
+			'NUMERIC data type',
+			'asia1 and eur5 regions',
+			'Single- to multi-region upgrade',
+			'Fine-grained access control',
+		];
+
+		const colHeaders = `<tr><th scope="column"></th>${colDim
+			.map((d) => `<th scope="column"><div class="text">${d}</div></th>`)
 			.join('')}</tr>`;
 		const rows = rowDim
 			.map(
