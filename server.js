@@ -14,13 +14,15 @@ const app = express();
 app.get('/', async (req, res) => {
 	// The query to execute
 	const query = {
-		sql: 'SELECT 1',
+		sql: 'SELECT 1 AS value',
 	};
 
 	try {
 		// Execute a simple SQL statement
 		const [rows] = await database.run(query);
-		return res.send(`Rows: ${rows.join(', ')}`);
+		return res.send(
+			`Rows: ${rows.map((row) => JSON.stringify(row)).join(', ')}`
+		);
 	} catch (err) {
 		res.status(500).send({ message: String(err) });
 	}
