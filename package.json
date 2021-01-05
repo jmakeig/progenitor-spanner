@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node server.js"
+    "dev": "$(gcloud beta emulators spanner env-init); NODE_ENV=development node server.js"
   },
   "keywords": [],
   "author": "Justin Makeig <jmpublic+github@makeig.com> (https://github.com/jmakeig)",
